@@ -1,7 +1,9 @@
 pipeline{
 	tools{
-	maven = tool name: 'M3', type: 'maven'
-	sonarhome = tool name: 'SonarQube Scanner', type: 'hudson.plugins.sonar.SonarRunnerInstallation'
+	// maven = tool name: 'M3', type: 'maven'
+	// sonarhome = tool name: 'SonarQube Scanner', type: 'hudson.plugins.sonar.SonarRunnerInstallation'
+	maven 'M3'
+	sonarQube 'SonarQube Scanner'
 	}
 	agent any
 	stages{
@@ -9,7 +11,7 @@ pipeline{
     	{
     	steps{
         	git 'git@github.com:ManishGandhiDodda/samplejavaproject.git'
-        	workspace = pwd()
+        //	workspace = pwd()
         	}
     	}
     	stage('Build')
