@@ -14,7 +14,7 @@ pipeline{
     	stage('checkout')
     	{
     	steps{
-        	git 'git@github.com:ManishGandhiDodda/samplejavaproject.git'
+        	git 'git@github.com:ManishGandhiDodda/samplejavaprojec.git'
         //	workspace = pwd()
         	}
     	}
