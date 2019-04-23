@@ -3,8 +3,12 @@ pipeline{
 	// maven = tool name: 'M3', type: 'maven'
 	// sonarhome = tool name: 'SonarQube Scanner', type: 'hudson.plugins.sonar.SonarRunnerInstallation'
 	maven 'M3'
-	sonarQube 'SonarQube Scanner'
+	// sonarQube 'SonarQube Scanner'
 	}
+	environment {
+  	sonarHome = "/usr/local/Cellar/sonar-scanner/3.3.0.1492"
+	}
+	
 	agent any
 	stages{
     	stage('checkout')
