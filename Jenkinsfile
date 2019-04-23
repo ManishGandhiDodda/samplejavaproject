@@ -45,6 +45,7 @@ pipeline{
      //   sh "find . -iname "*.war" -exec cp {} /usr/local/apache-tomcat-9.0.19/webapps \;"
     	}
     	}
+    }	
         post {
   		always {
     		echo "Sucessfully ran the Job"
@@ -53,5 +54,4 @@ pipeline{
     		echo "Job failed to Execute"
   		}
 	}
-    }
 }
