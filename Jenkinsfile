@@ -1,5 +1,9 @@
-def workspace
 pipeline{
+	environment{
+	workspace
+	mvnHome
+	sonarHome
+	}
 	agent any
 	stages{
     	stage('checkout')
@@ -12,7 +16,7 @@ pipeline{
     	stage('Build')
     	{
     		steps{
-        	def mvnHome = tool name: 'M3', type: 'maven'
+        	mvnHome = tool name: 'M3', type: 'maven'
         	withMaven(maven: 'M3', tempBinDir: '') {
         	sh 'mvn clean install'
         	}
@@ -22,7 +26,7 @@ pipeline{
     	{
     		steps{
         	workspace = pwd()
-        	def sonarHome = tool name: 'SonarQube Scanner', type: 'hudson.plugins.sonar.SonarRunnerInstallation'
+        	sonarHome = tool name: 'SonarQube Scanner', type: 'hudson.plugins.sonar.SonarRunnerInstallation'
         	withSonarQubeEnv('SonarQube Server') {
             sh "${sonarHome}/bin/sonar-scanner"
 			}
