@@ -1,6 +1,5 @@
 pipeline{
 	tools{
-	//workspace = pwd()
 	maven = tool name: 'M3', type: 'maven'
 	sonarhome = tool name: 'SonarQube Scanner', type: 'hudson.plugins.sonar.SonarRunnerInstallation'
 	}
