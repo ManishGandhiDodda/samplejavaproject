@@ -10,6 +10,9 @@ pipeline{
 	}
 	
 	agent any
+	parameters {
+  	choice choices: ['Windows', 'Linux'], description: 'Please choose the environment on which this job need to be executed.', name: 'Environment'
+	}
 	stages{
     	stage('checkout')
     	{
@@ -20,6 +23,9 @@ pipeline{
     	}
     	stage('Build')
     	{
+		when{
+		expression { params.Environemnt == 'Linux' }
+		}
     		steps{
         //	mvnHome = tool name: 'M3', type: 'maven'
         	withMaven(maven: 'M3', tempBinDir: '') {
