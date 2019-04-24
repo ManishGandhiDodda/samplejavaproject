@@ -1,4 +1,7 @@
 pipeline{
+	parameters {
+        choice choices: ['Windows', 'Linux'], description: 'Please choose the environment on which this job need to be executed.', name: 'Environment'
+        }
 	tools{
 	// maven = tool name: 'M3', type: 'maven'
 	// sonarhome = tool name: 'SonarQube Scanner', type: 'hudson.plugins.sonar.SonarRunnerInstallation'
@@ -10,9 +13,7 @@ pipeline{
 	}
 	
 	agent any
-	parameters {
-  	choice choices: ['Windows', 'Linux'], description: 'Please choose the environment on which this job need to be executed.', name: 'Environment'
-	}
+	
 	stages{
     	stage('checkout')
     	{
@@ -56,6 +57,8 @@ pipeline{
   		always {
     		echo "Sucessfully ran the Job"
   		}
+		success{
+		}
   		failure {
     		echo "Job failed to Execute"
   		}
