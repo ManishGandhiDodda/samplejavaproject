@@ -57,8 +57,6 @@ pipeline{
   		always {
     		echo "Sucessfully ran the Job"
   		}
-		success{
-		}
   		failure {
     		echo "Job failed to Execute"
   		}
