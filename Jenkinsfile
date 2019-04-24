@@ -24,7 +24,7 @@ pipeline{
     	stage('Build')
     	{
 		when{
-		expression { params.Environemnt == 'Linux' }
+		expression { params.Environment == 'Linux' }
 		}
     		steps{
         //	mvnHome = tool name: 'M3', type: 'maven'
